@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Coins</title>
+  <style>
+    table {
+      border-collapse: collapse;
+    }
+    th, td {
+      border: 1px solid black;
+      padding: 0.5em;
+    }
+  </style>
+</head>
+<body>
+  <h1>Coins</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Logo</th>
+        <th>Decentralized Send API</th>
+        <th>Centralized Send API Last Updated</th>
+        <th>Status</th>
+        <th>Created At</th>
+        <th>Updated At</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% for (const coin of coins) { %>
+        <tr>
+          <td><%= coin._id %></td>
+          <td><%= coin.coin_name %></td>
+          <td><img src="<%= coin.logo %>" alt="<%= coin.coin_name %> logo"></td>
+          <td><%= coin.decn_sent_api %></td>
+          <td><%= coin.cent_sent_api %></td>
+          <td><%= coin.status ? 'Active' : 'Inactive' %></td>
+          <td><%= coin.createdAt.toLocaleString() %></td>
+          <td><%= coin.updatedAt.toLocaleString() %></td>
+        </tr>
+      <% } %>
+    </tbody>
+  </table>
+</body>
+</html>
